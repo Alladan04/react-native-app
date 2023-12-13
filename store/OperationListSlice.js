@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     operations: [],
     operation: {},
+    text:"",
 };
 
 export const OperationSlice = createSlice({
@@ -23,9 +24,13 @@ export const OperationSlice = createSlice({
             console.log('resetOperaiton');
             state.operation = {};
         },
+        setText:(state, {payload})=>{
+            console.log("changing search text to", payload);
+            state.text = payload;
+        },
     },
 });
 
 export const operaitonReducer = OperationSlice.reducer;
 
-export const { setOperations, setOperation, resetOperation } = OperationSlice.actions;
+export const { setOperations, setOperation, resetOperation, setText } = OperationSlice.actions;

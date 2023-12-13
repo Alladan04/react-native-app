@@ -5,7 +5,7 @@ import { useDispatch,  useSelector} from 'react-redux';
 import { setOperation,resetOperation } from '../store/OperationListSlice';
 import { ScreenContainer} from 'react-native-screens';
 import { ScrollView } from 'react-native';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ImageBackground, Image, TouchableOpacity, Feather, FontAwesome} from 'react-native';
 import axios from 'axios';
 export default function OperationScreen({ route}) {

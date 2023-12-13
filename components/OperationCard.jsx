@@ -3,7 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 export default function OperationCard({navigation,...props}){
-     console.log("Operation Card")
+     //console.log("Operation Card")
 
      const handlePress = () => {
           navigation.navigate('Operation', { id: props.pk });
