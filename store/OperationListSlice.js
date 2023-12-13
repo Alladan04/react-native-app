@@ -12,16 +12,16 @@ export const OperationSlice = createSlice({
         setOperations: (state, { payload }) => {
             console.log('setOperations');
            // console.log(payload) ;
-            state.devices = payload;
+            state.operations = payload;
         },
         setOperation: (state, { payload }) => {
             console.log('setOperation');
            // console.log(payload) ;
-            state.device = payload;
+            state.operation = payload;
         },
         resetOperation: (state) => {
             console.log('resetOperaiton');
-            state.device = {};
+            state.operation = {};
         },
     },
 });

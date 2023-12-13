@@ -20,10 +20,10 @@ export default function OperationListScreen({navigation}){
               ///await axiosInstance.get('operation/')
                axios.get("http://192.168.152.60:8000/operation/")
                .then((response)=>{
-                    //console.log(response?.data.data);
+                    console.log("got data");
                    dispatch(setOperations(response?.data.data))})
                .catch(function(err){
-                    console.log("got error", err.response.data)
+                    console.log("got error", err)
                });
           }
           getAllOperaitons();
@@ -31,7 +31,7 @@ export default function OperationListScreen({navigation}){
      return (
           <ScrollView>
           <View>
-               {!!operations && operations.map((operation)=><OperationCard key = {operation.id} {...operation}></OperationCard>)}
+               {!!operations && operations.map((operation)=><OperationCard key = {operation.id} {...operation} navigation = {navigation}></OperationCard>)}
           </View>
                </ScrollView>
           

@@ -1,24 +1,26 @@
 import {View, Text,StyleSheet, Image, Button} from 'react-native';
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function OperationCard(props){
-     console.log("Operation Card", props)
+export default function OperationCard({navigation,...props}){
+     console.log("Operation Card")
 
      const handlePress = () => {
-          navigation.navigate('Operation', { id: props.id });
+          navigation.navigate('Operation', { id: props.pk });
+          console.log ("operation id from handlePress in Operation card",props.pk)
       };
+      b64img= "data:image/png;base64,"+ props.image
      return (
           <View style={styles.card}>
           <Image
               style={styles.image}
-              source={"data:image/png;base64,"+props.image}
+              source={{uri: b64img}}
               resizeMode='contain'
           />
           <View style={styles.container}>
               <Text style={styles.brandTitle}>{props.name}</Text>
               <View style={styles.row}>
-                  <Text style={styles.text}>{props.name}</Text>
-                  <Text style={styles.text}>{props.name} р.</Text>
+                  <Text style={styles.text}>{props.description}</Text>
               </View>
           </View>
           <Button title='View details' onPress={handlePress} />

@@ -16,7 +16,7 @@ export default function App() {
     <NavigationContainer>
             <Stack.Navigator>
             <Stack.Screen name='OperationList' component={OperationListScreen} />
-                <Stack.Screen name='Operation' component={OperationScreen} />
+            <Stack.Screen name='Operation' component={OperationScreen} />
             </Stack.Navigator>
         </NavigationContainer>
         </Provider>
