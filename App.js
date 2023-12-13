@@ -12,11 +12,17 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   console.log("App.js")
   return (
-    <Provider store = {store}>
-    <NavigationContainer>
-            <Stack.Navigator>
-            <Stack.Screen name='OperationList' component={OperationListScreen} />
-            <Stack.Screen name='Operation' component={OperationScreen} />
+    <Provider store = {store} style = {styles.nav}>
+    <NavigationContainer style = {styles.nav}>
+            <Stack.Navigator style = {styles.nav}>
+            <Stack.Screen name='OperationList' component={OperationListScreen} options={{ title: 'Главная страница', headerStyle: {
+              backgroundColor: '#fb09b2',
+              color:'white'
+           } }}/>
+            <Stack.Screen  name='Operation' component={OperationScreen} options={{ title: 'Главная страница', headerStyle: {
+              backgroundColor: '#fb09b2',
+              color: 'white'
+           } }} />
             </Stack.Navigator>
         </NavigationContainer>
         </Provider>
@@ -30,4 +36,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  nav:{
+    color:'pink',
+    backgroundColor:'black'
+  }
 });

@@ -30,7 +30,7 @@ export default function OperationListScreen({navigation}){
      }, [dispatch]);
      return (
           <ScrollView>
-          <View>
+          <View style= {styles.page}>
                {!!operations && operations.map((operation)=><OperationCard key = {operation.id} {...operation} navigation = {navigation}></OperationCard>)}
           </View>
                </ScrollView>

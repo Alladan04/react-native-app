@@ -1,4 +1,4 @@
-import {View, Text,StyleSheet, Image, Button} from 'react-native';
+import {View, Text,StyleSheet, Image, Button,  Pressable } from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -11,6 +11,7 @@ export default function OperationCard({navigation,...props}){
       };
       b64img= "data:image/png;base64,"+ props.image
      return (
+
           <View style={styles.card}>
           <Image
               style={styles.image}
@@ -20,19 +21,23 @@ export default function OperationCard({navigation,...props}){
           <View style={styles.container}>
               <Text style={styles.brandTitle}>{props.name}</Text>
               <View style={styles.row}>
-                  <Text style={styles.text}>{props.description}</Text>
+                  
               </View>
           </View>
-          <Button title='View details' onPress={handlePress} />
+          <Pressable style = {styles.button} title='View details' onPress={handlePress}> 
+           <Text style = {styles.buttonText}>Подробнее</Text> 
+           </Pressable>
+          
       </View>
+      
      );
 }
 
-
 const styles = StyleSheet.create({
+  
     card: {
         display: 'flex',
-        justifyContent: 'flex-start',
+        
         alignItems: 'center',
         flexDirection: 'column',
         width: 320,
@@ -42,9 +47,25 @@ const styles = StyleSheet.create({
         gap: 12,
         margin: 8,
     },
+    button :{
+      alignItems: 'left',
+      justifyContent: 'center',
+      paddingVertical: 12,
+      paddingHorizontal: 32,
+      borderRadius: 4,
+      elevation: 3,
+      backgroundColor: '#fb09b2',
+    },
+    buttonText:{
+      fontSize: 16,
+      lineHeight: 21,
+      fontWeight: 'bold',
+      letterSpacing: 0.25,
+      color: 'white',
+    },
     image: { height: 320, alignSelf: 'stretch' },
     container: { display: 'flex', width: '100%', margin: 8 },
     row: { display: 'flex', flexDirection: 'row', justifyContent: 'space-between' },
-    brandTitle: { color: '#4287f5', fontSize: 16 },
+    brandTitle: { color: '#fb09b2', fontSize: 32, alignSelf:'center'},
     text: { color: '#f0f0f0', fontSize: 16 },
 });
