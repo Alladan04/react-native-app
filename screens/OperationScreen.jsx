@@ -8,19 +8,24 @@ import { ScrollView } from 'react-native';
 import { useEffect, useState } from 'react';
 import { ImageBackground, Image, TouchableOpacity, Feather, FontAwesome} from 'react-native';
 import axios from 'axios';
-export default function OperationScreen({ route}) {
+
+
+const HOST = "http://192.168.0.114:8000"
+export  default function OperationScreen({ route}) {
     const dispatch = useDispatch();
     const { id } = route.params;
+    console.log(id);
      console.log("Operation screen");
      const {operation} = useSelector((store)=>store.operation);
-
+     //console.log(operation)
      useEffect(()=>{
         function getOperaiton(){
              console.log("in use 1 operation effect")
             ///await axiosInstance.get('operation/')
-            axios.get(`http://192.168.152.60:8000/operation/${id}`)
+            const url = HOST+"/operation/"+id+"/";
+             axios.get(url)
              .then((response)=>{
-               
+                //console.log(response.data)
                  dispatch(setOperation(response?.data.data))})
              .catch(function(err){
                   console.log("got error in 1 operation useeffect", err)

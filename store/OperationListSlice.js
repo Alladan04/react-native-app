@@ -18,6 +18,7 @@ export const OperationSlice = createSlice({
         setOperation: (state, { payload }) => {
             console.log('setOperation');
            // console.log(payload) ;
+           console.log(payload);
             state.operation = payload;
         },
         resetOperation: (state) => {

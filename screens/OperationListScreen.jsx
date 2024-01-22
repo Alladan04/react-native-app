@@ -12,6 +12,7 @@ import { StyleSheet } from "react-native";
 import axios from "axios";
 import { Feather, Entypo } from "@expo/vector-icons";
 
+const HOST = "http://192.168.0.114:8000"
 export default function OperationListScreen({navigation}){
      console.log("operation list screen")
      const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function OperationListScreen({navigation}){
           async function getAllOperaitons(){
                console.log("in use effect, searching for", text)
               ///await axiosInstance.get('operation/')
-               axios.get("http://192.168.152.60:8000/operation/?text="+text)
+               axios.get(HOST+ "/operation/?text="+text)
                .then((response)=>{
                     console.log("got data");
                    dispatch(setOperations(response?.data.data))})
@@ -56,7 +57,7 @@ export default function OperationListScreen({navigation}){
            {/* Input field */}
            <TextInput
              style={styles.input}
-             placeholder="Search"
+             placeholder="Поиск"
              value={input} 
              onChangeText={(text)=>setInput(text)} 
              onSubmitEditing={SubmitFunc}
